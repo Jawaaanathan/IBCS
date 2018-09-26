@@ -1,0 +1,166 @@
+//Author: Eric
+//Class		Computer Science Period 2
+//Last Edited: Sept 7, 2018
+
+import java.io.*;
+import java.util.Scanner;
+class lab4 {
+	public static void main(String args[]) {
+		
+		//setup
+		int choice = 0;
+		
+		
+		Scanner in = new Scanner (System.in);
+		
+		do {
+			
+			System.out.println("Welcome to lab 4. Each section of the lab has been assigned a number, choose a lab based on its given number below. Enter zero to end the program.");
+			System.out.println(" ");
+			System.out.println("0. End Program");
+			System.out.println("1. Add It Up!");
+			System.out.println("2. Grading Program");
+			System.out.println("3. Grading Program Part 2");
+			System.out.println("4. Reciprocal");
+			System.out.println("5. LCM/GCD");
+			System.out.println("6. Challenge");
+			System.out.println(" ");
+			System.out.print("Insert the number assigned to the program you wish to execute here: ");
+		
+			choice = in.nextInt();
+		
+			if(choice == 1){
+		
+				//part 1
+				int counter_1 = 0;
+				int number = 0;
+				int output_1 = 0;
+		
+				System.out.println("Enter a number");
+		
+				counter_1 = in.nextInt();
+			
+				number = counter_1 - counter_1;
+		
+				while (number < counter_1 - 1){
+					number = number + 1;
+					output_1 = (number*(number+1)) / 2;
+					System.out.print(number+ " + ");
+				}
+				System.out.println(number+ " = "+output_1);
+			}else if(choice == 2){
+				
+				//part 2
+				double grade = 0;
+				double output_2 = 0;
+				int counter = 0;
+				double output_true = 0;
+				
+				System.out.println("Use this program to figure out the class average of the grades on a test. Type -1 into the program to stop entering grades and get the average.");
+				System.out.println("Begin inserting your grades:"); 
+				while (grade != -1) {
+					grade = in.nextDouble();
+					if (grade != -1) {
+						output_2 = output_2 + grade;
+						counter = counter + 1;
+					}
+				}
+				output_true = output_2 / counter;
+				if (output_true >= 90) {
+					System.out.println("Your average class score is " +output_true+ ". The class average is an A.");
+				} else if ((output_true >= 80)&(output_true < 90)) {
+					System.out.println("Your average class score is " +output_true+ ". The class average is a B.");
+				} else if ((output_true >= 70)&(output_true < 80)) {
+					System.out.println("Your average class score is " +output_true+ ". The class average is a C.");
+				} else if ((output_true >= 60)&(output_true < 70)) {
+					System.out.println("Your average class score is " +output_true+ ". The class average is a D.");
+				} else {
+					System.out.println("Your average class score is " +output_true+ ". The class average is an F.");
+				}
+			}else if(choice == 3){
+				
+				//part 3
+				double grade = 0;
+				double output_2 = 0;
+				int counter = 0;
+				double output_true = 0;
+				double count_a = 0;
+				double count_b = 0;
+				double count_c = 0;
+				double count_d = 0;
+				double count_f = 0;
+				
+				System.out.println("Use this program to figure out the class average of the grades on a test. Type -1 into the program to stop entering grades and get the average.");
+				System.out.println("Begin inserting your grades:"); 
+				while (grade != -1) {
+					grade = in.nextDouble();
+					if (grade != -1) {
+						output_2 = output_2 + grade;
+						counter = counter + 1;
+					}
+					if (grade >= 90) {
+						count_a = count_a + 1;
+					} else if ((grade >= 80)&(grade < 90)) {
+						count_b = count_b + 1;
+					} else if ((grade >= 70)&(grade < 80)) {
+						count_c = count_c + 1;
+					} else if ((grade >= 60)&(grade < 70)) {
+						count_d = count_d + 1;
+					} else if (grade <=59){
+						count_f = count_f + 1;
+					}	
+				}
+				output_true = output_2 / counter;
+					
+				count_f = count_f -1;
+				if (output_true >= 90) {
+					System.out.println("Your average class score is " +output_true+ ". The class average is an A.");
+					System.out.println("A total of " +count_a+ " students received an A on their test.");
+					System.out.println("A total of " +count_b+ " students received an B on their test.");
+					System.out.println("A total of " +count_c+ " students received an C on their test.");
+					System.out.println("A total of " +count_d+ " students received an D on their test.");
+					System.out.println("A total of " +count_f+ " students received an F on their test.");	
+				} else if ((output_true >= 80)&(output_true < 90)) {
+					System.out.println("Your average class score is " +output_true+ ". The class average is a B.");
+					System.out.println("A total of " +count_a+ " students received an A on their test.");
+					System.out.println("A total of " +count_b+ " students received an B on their test.");
+					System.out.println("A total of " +count_c+ " students received an C on their test.");
+					System.out.println("A total of " +count_d+ " students received an D on their test.");
+					System.out.println("A total of " +count_f+ " students received an F on their test.");	
+				} else if ((output_true >= 70)&(output_true < 80)) {
+					System.out.println("Your average class score is " +output_true+ ". The class average is a C.");
+					System.out.println("A total of " +count_a+ " students received an A on their test.");
+					System.out.println("A total of " +count_b+ " students received an B on their test.");
+					System.out.println("A total of " +count_c+ " students received an C on their test.");
+					System.out.println("A total of " +count_d+ " students received an D on their test.");
+					System.out.println("A total of " +count_f+ " students received an F on their test.");	
+				} else if ((output_true >= 60)&(output_true < 70)) {
+					System.out.println("Your average class score is " +output_true+ ". The class average is a D.");
+					System.out.println("A total of " +count_a+ " students received an A on their test.");
+					System.out.println("A total of " +count_b+ " students received an B on their test.");
+					System.out.println("A total of " +count_c+ " students received an C on their test.");
+					System.out.println("A total of " +count_d+ " students received an D on their test.");
+					System.out.println("A total of " +count_f+ " students received an F on their test.");	
+				} else if (output_true >=59) {
+					System.out.println("Your average class score is " +output_true+ ". The class average is an F.");
+					System.out.println("A total of " +count_a+ " students received an A on their test.");
+					System.out.println("A total of " +count_b+ " students received an B on their test.");
+					System.out.println("A total of " +count_c+ " students received an C on their test.");
+					System.out.println("A total of " +count_d+ " students received an D on their test.");
+					System.out.println("A total of " +count_f+ " students received an F on their test.");	
+				}
+			}else if(choice == 4){
+				System.out.println("This program isn't finished yet.");
+			}else if(choice == 5){
+				System.out.println("This program isn't finished yet.");
+			}else if(choice == 6){
+				System.out.println("This program isn't finished yet.");
+			}else if(choice >= 7){
+				System.out.println("Uh oh! It looks like you've entered an invalid number, please enter a number that is given to a program.");
+			}
+		} while (choice != 0);
+		
+		System.out.println("Program ended");
+	}
+	
+} 
