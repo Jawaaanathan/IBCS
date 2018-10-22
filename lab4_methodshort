@@ -12,38 +12,6 @@ class lab4 {
 		
 		//setup
 		int choice = 0;
-		//part 1
-		int counter_1 = 0;
-		int number = 0;
-		int output_1 = 0;
-		//part 2
-		double grade_1 = 0;
-		double output_2 = 0;
-		int counter_2 = 0;
-		double output_true_1 = 0;
-		//part 3
-		double grade_2 = 0;
-		double output_3 = 0;
-		int counter_3 = 0;
-		double output_true_2 = 0;
-		double count_a = 0;
-		double count_b = 0;
-		double count_c = 0;
-		double count_d = 0;
-		double count_f = 0;
-		//part 4
-		double input = 1;
-		double reciprocal = 0;
-		double lumpsum = 0;
-		int countup = 0;
-		//part 5
-		int num1 = 0;
-		int num2 = 0;
-		int temp1  = 0;
-		int temp2 = 0;
-		int set = 0;
-		int lcm = 0;
-		int gcd = 0;
 		
 		Scanner in = new Scanner (System.in);
 	
