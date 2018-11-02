@@ -1,0 +1,64 @@
+//Author: Eric
+//Class		Computer Science Period 2
+//Last Edited: Nov 2, 2018
+
+import java.io.*;
+import java.util.Scanner;
+class lab5 {
+	public static void Program1() throws IOException {
+		 int set = 0;
+		do {
+			int charval = 0;
+			char mychar;
+			System.out.println("Please enter a character: ");
+			charval = System.in.read();
+			mychar = (char) charval;
+			set = System.in.read();
+			System.out.println("Letter value read was " + charval + " character is "+ mychar);
+		} while (set != 49);
+
+	}
+	public static void Program2() throws IOException {
+		int charval = 0;
+		char mychar;
+		System.out.println("Please enter a character: ");
+		charval = System.in.read();
+		mychar = (char) charval;
+		System.out.println("Letter value read was " + charval + " character is "+ mychar);
+	}
+	public static void Program3() throws IOException {
+		System.out.println("Woks");
+	}
+	public static void main(String args[]) throws IOException {
+		
+		//setup
+		int choice = 0;
+		
+		Scanner in = new Scanner (System.in);
+	
+		do {
+			
+			System.out.println("Welcome to lab 4. Each section of the lab has been assigned a number, choose a lab based on its given number below. Enter zero to end the program.");
+			System.out.println(" ");
+			System.out.println("0. End Program");
+			System.out.println("1. Program 1");
+			System.out.println("2. Program 2");
+			System.out.println("3. Program 3");
+			System.out.println(" ");
+			System.out.print("Insert the number assigned to the program you wish to execute here: ");
+		
+			choice = in.nextInt();
+		
+			if(choice == 1){
+				lab5.Program1();
+			}else if(choice == 2){
+				lab5.Program2();
+			}else if(choice == 3){
+				lab5.Program3();
+			}
+		} while (choice != 0);
+		
+		System.out.println("Program ended");
+		
+	}
+}
