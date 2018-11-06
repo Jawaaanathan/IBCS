@@ -1,30 +1,45 @@
 //Author: Eric
 //Class		Computer Science Period 2
-//Last Edited: Nov 2, 2018
+//Last Edited: Nov 6, 2018
 
 import java.io.*;
 import java.util.Scanner;
 class lab5 {
 	public static void Program1() throws IOException {
-		 int set = 0;
-		do {
-			int charval = 0;
-			char mychar;
-			System.out.println("Please enter a character: ");
-			charval = System.in.read();
-			mychar = (char) charval;
-			set = System.in.read();
-			System.out.println("Letter value read was " + charval + " character is "+ mychar);
-		} while (set != 49);
-
-	}
-	public static void Program2() throws IOException {
 		int charval = 0;
+		int set = 0;
 		char mychar;
-		System.out.println("Please enter a character: ");
-		charval = System.in.read();
-		mychar = (char) charval;
-		System.out.println("Letter value read was " + charval + " character is "+ mychar);
+		while (set != 1) {
+			if (charval != '0'){
+				System.out.println("Please enter a character, enter 0 to quit: ");
+				do {
+					charval = System.in.read();
+				} while ((charval == 10) || (charval == 13));
+					mychar = (char) charval;
+					System.out.println("Letter value read was " + charval + " character is "+ mychar);	
+			} else if (charval == '0') {
+				System.out.println("Are you sure you want to end the program? If yes, enter y; if no, enter any other key");
+				do {
+					charval = System.in.read();
+				} while ((charval == 10) || (charval == 13));
+				if (charval == 'y') {
+					System.out.println("System ended");
+					set = 1;
+				}
+			}
+		}
+	}
+	
+	public static void Program2() throws IOException {
+		int charval0 = 0;
+		int charval1 = 0;
+		int charend = 0;
+		int start = 0;
+		char charval0;
+		char charval1;
+		
+		while (start != 1) {
+			
 	}
 	public static void Program3() throws IOException {
 		System.out.println("Woks");
