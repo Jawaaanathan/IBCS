@@ -1,0 +1,267 @@
+//Author: Eric
+//Class		Computer Science Period 2
+//Last Edited: Jan 13, 2019
+
+import java.io.*;
+import java.util.Random;
+import java.util.Scanner;
+class lab5b {
+  static public int quit() throws IOException {
+		int quit = 0;
+		int charval0 = 0;
+		System.out.println("Are you sure you want to end the program? Enter 'Y' for yes, any other key for no.");
+		do {
+			charval0 = System.in.read();
+		} while ((charval0 == 10) || (charval0 == 13));
+		if ((charval0 == 89) || (charval0 == 121)) { //End program based on user input, Y or y ends the program and entering any other character continues it
+			System.out.println("Program ended.");
+			quit = 1; //Sets universal quit variable to end any method using it
+			charval0 = 0;
+		} else {
+			quit = 2;
+			charval0 = 0;
+		}
+	  return quit;
+	}
+  //Assigns a random number, user must guess random number
+  static public void Program1() throws IOException {
+    Scanner in = new Scanner (System.in);
+    int valuereturned;
+    int i;
+    int usrnum = 0;
+    int sumnum = 0;
+    int numreandin = 0;
+    int quit = 0;
+    Random numrand = new Random();
+    System.out.println("In this program the computer will create a random number between 1 and 1000. You have to guess which number it is. The computer will tell you if the number it too high or too low.");
+    valuereturned = numrand.nextInt(1000); //Sets a random number from 1-1000
+    numreandin = valuereturned;
+      while (usrnum != numreandin) {
+        usrnum = in.nextInt(); //User enters a number until the they guess the right number
+        if (usrnum > numreandin) { //If number is larger than assigned number machine outputs this message and runs again
+          System.out.println("That number is too high.");
+        } else if (usrnum < numreandin) { //If number is smaller than assigned number machine outputs this message and runs again
+          System.out.println("That number is too low.");
+        } else if (usrnum == numreandin) { //If number is guessed correctly this message is printed and program is quit to menu
+          System.out.println("Congratulations, you guessed the right number.");
+        }
+      }
+    System.out.println("Loop ended.");
+  }
+  //Prints string of numbers counting down
+  static public void Program2() throws IOException {
+    Scanner in = new Scanner (System.in);
+    int usrnum = 0;
+    int count = 0;
+    int quit = 0;
+    int outpr = 0;
+    boolean endit = false;
+    while (quit != 1) {
+      if (endit == false) {
+        System.out.println(" ");
+        usrnum = 0; count = 0; outpr = 0;
+        System.out.println("Enter a number and the program will print out the amount lines dictated by the number. Enter 0 to end the loop.");
+
+        usrnum = in.nextInt();
+        System.out.println(" ");
+        if (usrnum == 0) {
+          endit = true;
+        } else {
+          while (usrnum != 0) {
+            while (outpr >= 0) { //While the counter != 0 it will continue to count down and print the usrnum
+              System.out.print(usrnum +" ");
+              outpr--;
+            }
+            usrnum--; //Subtrats one from usrnum everytime
+            count++;
+            outpr = count;
+            System.out.println(" ");
+          }
+        }
+      } else if (endit == true) {
+        quit = quit();
+        usrnum = 0;
+      }
+    }
+    System.out.println("System Ended.");
+  }
+  static public void Program3() throws IOException {
+    Scanner in = new Scanner (System.in);
+    int height = 0;
+    int width = 0;
+    int md = 0;
+    int top = 0;
+    int side = 0;
+    int tb = 0;
+    int sbs = 0;
+    int quit = 0;
+    boolean endit = false;
+    while (quit != 1) {
+
+      if (endit == false) {
+
+        System.out.println("Please enter a height and a width (HXW) and the program will print out a box fiiting the dimensions input into the loop. Ex: 5 and 9. Enter 0 to end the program.");
+        System.out.println(" ");
+        System.out.println("Enter the height:");
+        height = in.nextInt();
+        if (height == 0) {
+          endit = true;
+        }
+        if (endit == false) {
+          System.out.println("Enter the width");
+          width = in.nextInt();
+        }
+
+        if ((height > 1) && (width > 1)) { //If the H&W is > 1 will run prgram normally
+          System.out.println(" ");
+          top = width - 1; //Sets up counters to allow for a pl line and proper height facotring in width
+          side = height - 2;
+
+          while (tb < top) { //While counter != width - 1 print *, add one to counter
+            System.out.print("*");
+            tb++;
+          }
+          System.out.println("*"); //Prints last * to return to the next line
+          tb = 0;
+
+          while (sbs < side) { //While initial counter != heigth - 1 prints one * and runs next while
+            System.out.print("*");
+            while (md < (width - 2)) { //While second counter != width - 2 prints amout of spaces needed
+              System.out.print(" ");
+              md++;
+            }
+            System.out.println("*"); //Returns to next line
+            md = 0;
+            sbs++;
+          }
+
+          while (tb < top) { //Same as before but prints the bottom
+            System.out.print("*");
+            tb++;
+          }
+          System.out.println("*");
+
+          width = 0; height = 0; md = 0; sbs = 0; tb = 0; top = 0; side = 0; //Resets all intergers
+          System.out.println(" ");
+
+        } else if ((endit == false) && (height == 1)){ //If height is one only prints the width
+          System.out.println(" ");
+          top = width - 1;
+          while (tb < top) {
+            System.out.print("*");
+            tb++;
+          }
+          System.out.println("*");
+          top = 0; width = 0; tb = 0;
+          System.out.println(" ");
+        } else if ((endit == false) && (width == 1)) { //If width is one only prints the height
+          System.out.println(" ");
+          while (sbs < height) {
+            System.out.println("*");
+            sbs++;
+          }
+          height = 0; sbs = 0;
+          System.out.println(" ");
+        } else if (endit == true){
+          System.out.println(" ");
+        }
+
+      } else if (endit == true) {
+        quit = quit();
+        height = 0;
+      }
+
+    }
+
+  }
+  //Similar to task 2 but with factorials
+  static public void Program4() throws IOException {
+    Scanner in = new Scanner (System.in);
+    int usrnum = 0;
+    int i = 0;
+    int quit = 0;
+    int lines = 1;
+    int midcount = 0;
+    int incount = 0;
+    int total = 1;
+    boolean endit = false;
+
+    while (quit != 1) {
+
+      usrnum = 0; lines = 1; midcount = 0; incount = 0; total = 1;
+
+      if (endit == false) {
+        System.out.println("Enter a number and get the factorials. Enter 0 to end the promgram");
+        usrnum = in.nextInt();
+
+        if (usrnum == 0) {
+          endit = true;
+        } else {
+          System.out.print(lines + "!= " + lines + " = " + lines); //Prints initial equation for 1! = 1
+          lines++;
+          while (lines <= usrnum) { //While the amt of lines != the usrnum runs program
+            System.out.println(" ");
+            System.out.print(lines + " = ");
+
+            for (i = lines; i > 1; i--) { //Sets i to the amount of lines needed subtracts 1 from 1 every tick
+
+              System.out.print(i + " x ");
+
+              total = total * i; //Creates the total of the facotrials
+
+            }
+
+            System.out.print(i + " = " + total);
+            total = 1;
+            lines++;
+            }
+            System.out.println(" ");
+        }
+
+      } else if (endit == true) {
+        quit = quit();
+        usrnum = 0;
+      }
+    }
+  }
+
+  static public void main(String args[]) throws IOException {
+
+    //setup
+    int choice = 0;
+
+    Scanner in = new Scanner (System.in);
+
+    do {
+
+      System.out.println("Welcome to lab 5b. Each section of the lab has been assigned a number, choose a lab based on its given number below. Enter zero to end the program.");
+      System.out.println(" ");
+      System.out.println("0. End Program");
+      System.out.println("1. Program 1");
+      System.out.println("2. Program 2");
+      System.out.println("3. Program 3");
+      System.out.println("4. Program 4");
+      System.out.println(" ");
+      System.out.print("Insert the number assigned to the program you wish to execute here: ");
+
+      choice = in.nextInt();
+
+      if(choice == 1){
+        lab5b.Program1();
+      }else if(choice == 2){
+        lab5b.Program2();
+      }else if(choice == 3){
+        lab5b.Program3();
+      }else if(choice == 4){
+        lab5b.Program4();
+      }else if (choice == 0) {
+        System.out.println("  ");
+      }else {
+        System.out.println("Uh oh, looks like you entered an invalid selection.");
+      }
+    } while (choice != 0);
+
+    System.out.println("Program ended");
+
+  }
+}
